@@ -1,0 +1,52 @@
+CREATE TABLE Stafff(
+staffNo varchar(10) PRIMARY KEY
+);
+
+CREATE TABLE Office( 
+officeNo varchar(10) PRIMARY KEY
+);
+
+CREATE TABLE Contract(
+contractNo varchar(10) PRIMARY KEY
+);
+
+CREATE TABLE Job(
+jobID int PRIMARY KEY
+);
+
+CREATE TABLE Clientt(
+clientNo varchar(10) PRIMARY KEY
+);
+
+CREATE TABLE Taxi(
+vehRegNo varchar(10) PRIMARY KEY
+);
+
+CREATE TABLE Ownerr(
+ownerID varchar(10) PRIMARY KEY
+);
+
+CREATE TABLE Driver(
+driverID varchar(10) PRIMARY KEY
+);
+
+CREATE TABLE Manager(
+managerID varchar(10) PRIMARY KEY
+);
+
+CREATE TABLE BusinessClient(
+clientNo varchar(10) FOREIGN KEY References Client(clientNo)
+);
+
+CREATE TABLE PrivateClient(
+clientNo varchar(10) FOREIGN KEY References Client(clientNo)
+);
+
+CREATE TABLE TaxiDriver(
+driverID varchar(10),
+vehRegNo varchar(10),
+
+PRIMARY KEY (driverID, vehRegNo),
+FOREIGN KEY (driverID) References Driver(driverID),
+FOREIGN KEY (vehRegNo) References Taxi(vehRegNo)
+);
